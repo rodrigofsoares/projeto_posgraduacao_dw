@@ -7,11 +7,11 @@ venv/
 .env
 
 # Dados
-dados/brutos/
-dados/tratados/
-*.csv
-*.xlsx
-*.json
+#dados/brutos/
+#dados/tratados/
+#*.csv
+#*.xlsx
+#*.json
 
 # Power BI
 *.pbix
