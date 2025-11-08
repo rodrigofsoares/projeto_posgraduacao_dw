@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Dados
+dados/brutos/
+dados/tratados/
+*.csv
+*.xlsx
+*.json
+
+# Power BI
+*.pbix
+*.pbit
+
+# Pentaho temporários
+*.tmp
+*.bak
+
+# IDEs
+.vscode/
+.idea/
