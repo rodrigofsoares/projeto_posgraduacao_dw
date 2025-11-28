@@ -24,3 +24,7 @@ venv/
 # IDEs
 .vscode/
 .idea/
+
+# Metabase
+plugins
+metabase.jar
