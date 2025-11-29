@@ -569,8 +569,43 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>224</yloc>
+      <xloc>512</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add sequence 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>id_filme_infor</valuename>
+    <use_database>N</use_database>
+    <connection>prod_filmes</connection>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -595,7 +630,7 @@
     </remotesteps>
     <GUI>
       <xloc>304</xloc>
-      <yloc>176</yloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -701,8 +736,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>112</yloc>
+      <xloc>512</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -823,8 +858,115 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
-      <yloc>224</yloc>
+      <xloc>656</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_filme_infor</name>
+      </field>
+      <field>
+        <name>titulo</name>
+      </field>
+      <field>
+        <name>ano</name>
+      </field>
+      <field>
+        <name>duracao</name>
+      </field>
+      <field>
+        <name>nota_imdb</name>
+      </field>
+      <field>
+        <name>voto</name>
+      </field>
+      <field>
+        <name>orcamento</name>
+      </field>
+      <field>
+        <name>bilheteria_mundial</name>
+      </field>
+      <field>
+        <name>bilheteria_fds_estreia</name>
+      </field>
+      <field>
+        <name>diretor</name>
+      </field>
+      <field>
+        <name>roterista</name>
+      </field>
+      <field>
+        <name>estrela</name>
+      </field>
+      <field>
+        <name>genero</name>
+      </field>
+      <field>
+        <name>pais_origem</name>
+      </field>
+      <field>
+        <name>produtora</name>
+      </field>
+      <field>
+        <name>indicacoes</name>
+      </field>
+      <field>
+        <name>oscar</name>
+      </field>
+      <field>
+        <name>id_imdb</name>
+        <rename>id_filme</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>titulo</name>
+      </remove>
+      <remove>
+        <name>ano</name>
+      </remove>
+      <remove>
+        <name>duracao</name>
+      </remove>
+      <remove>
+        <name>nota_imdb</name>
+      </remove>
+      <remove>
+        <name>voto</name>
+      </remove>
+      <remove>
+        <name>orcamento</name>
+      </remove>
+      <remove>
+        <name>bilheteria_mundial</name>
+      </remove>
+      <remove>
+        <name>bilheteria_fds_estreia</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -955,7 +1097,7 @@
     </remotesteps>
     <GUI>
       <xloc>192</xloc>
-      <yloc>176</yloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1381,7 +1523,7 @@
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>176</yloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1424,211 +1566,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>t_filme_valor</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>prod_filmes</connection>
-    <schema>dimensao</schema>
-    <table>t_filme_valor</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add sequence 2</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>id_filme_infor</valuename>
-    <use_database>N</use_database>
-    <connection>prod_filmes</connection>
-    <schema/>
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>496</xloc>
-      <yloc>336</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values 2 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>id_filme_infor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>titulo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ano</name>
-        <rename/>
-      </field>
-      <field>
-        <name>duracao</name>
-        <rename/>
-      </field>
-      <field>
-        <name>nota_imdb</name>
-        <rename/>
-      </field>
-      <field>
-        <name>voto</name>
-        <rename/>
-      </field>
-      <field>
-        <name>orcamento</name>
-        <rename/>
-      </field>
-      <field>
-        <name>bilheteria_mundial</name>
-        <rename/>
-      </field>
-      <field>
-        <name>bilheteria_fds_estreia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>diretor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>roterista</name>
-        <rename/>
-      </field>
-      <field>
-        <name>estrela</name>
-        <rename/>
-      </field>
-      <field>
-        <name>genero</name>
-        <rename/>
-      </field>
-      <field>
-        <name>pais_origem</name>
-        <rename/>
-      </field>
-      <field>
-        <name>produtora</name>
-        <rename/>
-      </field>
-      <field>
-        <name>indicacoes</name>
-        <rename/>
-      </field>
-      <field>
-        <name>oscar</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_imdb</name>
-        <rename>id_filme</rename>
-      </field>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>titulo</name>
-      </remove>
-      <remove>
-        <name>ano</name>
-      </remove>
-      <remove>
-        <name>duracao</name>
-      </remove>
-      <remove>
-        <name>nota_imdb</name>
-      </remove>
-      <remove>
-        <name>voto</name>
-      </remove>
-      <remove>
-        <name>orcamento</name>
-      </remove>
-      <remove>
-        <name>bilheteria_mundial</name>
-      </remove>
-      <remove>
-        <name>bilheteria_fds_estreia</name>
-      </remove>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>336</yloc>
+      <xloc>832</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1671,8 +1610,52 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>816</xloc>
-      <yloc>336</yloc>
+      <xloc>832</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>t_filme_valor</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>prod_filmes</connection>
+    <schema>dimensao</schema>
+    <table>t_filme_valor</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
