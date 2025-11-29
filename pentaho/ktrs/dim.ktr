@@ -489,123 +489,53 @@
   </connection>
   <order>
     <hop>
-      <from>Select values</from>
+      <from>Table input</from>
       <to>String operations</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>String operations</from>
-      <to>Select values 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Replace in string</from>
-      <to>Filter rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows</from>
-      <to>Select values</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Select values 2</from>
-      <to>Filter rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
-      <to>IMDB MAIOR QUE 8</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 2</from>
-      <to>IMDB MENOR QUE 8</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>IMDB MENOR QUE 8</from>
-      <to>Sort rows</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>IMDB MAIOR QUE 8</from>
-      <to>Sort rows 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 3</from>
-      <to>Melhor comédia</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Filter rows 3 2</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Filter rows 3 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 2</from>
-      <to>Filter rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Filter rows 3 2</from>
-      <to>Melhor de super herois</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows</from>
-      <to>todos abaixo de 8</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>IMDB MENOR QUE 8</from>
-      <to>Sort rows 3</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows 3</from>
-      <to>Add sequence</to>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add sequence</from>
-      <to>Filter rows 4</to>
+      <to>Select values 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows 4</from>
-      <to>PiorFilme</to>
+      <from>Select values</from>
+      <to>t_filme</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>IMDB MAIOR QUE 8</from>
-      <to>Sort rows 3 2</to>
+      <from>Select values 2</from>
+      <to>t_filme_valor</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dummy (do nothing)</from>
+      <to>Add sequence</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Add sequence 2</from>
-      <to>Filter rows 4 2</to>
+      <to>Select values 2 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filter rows 4 2</from>
-      <to>Melhor Filme</to>
+      <from>Select values 2 2</from>
+      <to>t_filme_infor</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sort rows 3 2</from>
+      <from>Dummy (do nothing)</from>
       <to>Add sequence 2</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Replace in string</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -620,9 +550,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <valuename>row_number</valuename>
+    <valuename>id_filme_valor</valuename>
     <use_database>N</use_database>
-    <connection/>
+    <connection>prod_filmes</connection>
     <schema/>
     <seqname>SEQ_</seqname>
     <use_counter>Y</use_counter>
@@ -639,342 +569,16 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add sequence 2</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>row_number</valuename>
-    <use_database>N</use_database>
-    <connection/>
-    <schema/>
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>848</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to/>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>title</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <conditions>
-              <condition>
-                <negated>N</negated>
-                <leftvalue>budget</leftvalue>
-                <function>IS NOT NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>AND</operator>
-                <leftvalue>rating_imdb</leftvalue>
-                <function>IS NOT NULL</function>
-                <rightvalue/>
-              </condition>
-            </conditions>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>gross_world_wide</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue/>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>160</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>IMDB MAIOR QUE 8</send_true_to>
-    <send_false_to>IMDB MENOR QUE 8</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <leftvalue>NOTA_IMDB</leftvalue>
-            <function>&gt;=</function>
-            <rightvalue/>
-            <value>
-              <name>constant</name>
-              <type>Number</type>
-              <text>8.0</text>
-              <length>-1</length>
-              <precision>-1</precision>
-              <isnull>N</isnull>
-              <mask>#</mask>
-            </value>
-          </condition>
-        </conditions>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>560</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 3</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Melhor comédia</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>GENERO</leftvalue>
-        <function>CONTAINS</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>COMEDY</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>848</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 3 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Melhor de super herois</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>GENERO</leftvalue>
-        <function>CONTAINS</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>SUPERHERO</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>848</xloc>
+      <xloc>496</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows 4</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>PiorFilme</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>row_number</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>####0;-####0</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>640</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filter rows 4 2</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>MelhorFilme</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>row_number</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>1</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>####0;-####0</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>944</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>IMDB MAIOR QUE 8</name>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -990,564 +594,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>IMDB MENOR QUE 8</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>560</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Melhor Filme</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding/>
-    <append>N</append>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>C:\Users\Rodrigo\Documents\UNIESP - DW PARA BI\estudo_dw\saida\PiorFilme</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <create_parent_folder>N</create_parent_folder>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>ID</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>TITULO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ANO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>DURACAO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>NOTA_IMDB</name>
-        <type>Number</type>
-        <format>00.0</format>
-      </field>
-      <field>
-        <name>VOTOS</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>ORCAMENTO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>BILHETERIA_MUNDIAL</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>GENERO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>PAIS_ORIGEM</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-      <header_font_name>arial</header_font_name>
-      <header_font_size>10</header_font_size>
-      <header_font_bold>N</header_font_bold>
-      <header_font_italic>N</header_font_italic>
-      <header_font_underline>no</header_font_underline>
-      <header_font_orientation>horizontal</header_font_orientation>
-      <header_font_color>black</header_font_color>
-      <header_background_color>none</header_background_color>
-      <header_row_height>255</header_row_height>
-      <header_alignment>left</header_alignment>
-      <header_image/>
-      <row_font_name>arial</row_font_name>
-      <row_font_size>10</row_font_size>
-      <row_font_color>black</row_font_color>
-      <row_background_color>none</row_background_color>
-    </custom>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1056</xloc>
-      <yloc>32</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Melhor comédia</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding/>
-    <append>N</append>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>C:\Users\Rodrigo\Documents\UNIESP - DW PARA BI\estudo_dw\saida\melhores_acao</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <create_parent_folder>N</create_parent_folder>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>ID</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>TITULO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ANO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>DURACAO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>NOTA_IMDB</name>
-        <type>Number</type>
-        <format>00.0</format>
-      </field>
-      <field>
-        <name>VOTOS</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>ORCAMENTO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>BILHETERIA_MUNDIAL</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>GENERO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>PAIS_ORIGEM</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-      <header_font_name>arial</header_font_name>
-      <header_font_size>10</header_font_size>
-      <header_font_bold>N</header_font_bold>
-      <header_font_italic>N</header_font_italic>
-      <header_font_underline>no</header_font_underline>
-      <header_font_orientation>horizontal</header_font_orientation>
-      <header_font_color>black</header_font_color>
-      <header_background_color>none</header_background_color>
-      <header_row_height>255</header_row_height>
-      <header_alignment>left</header_alignment>
-      <header_image/>
-      <row_font_name>arial</row_font_name>
-      <row_font_size>10</row_font_size>
-      <row_font_color>black</row_font_color>
-      <row_background_color>none</row_background_color>
-    </custom>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1056</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Melhor de super herois</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding/>
-    <append>N</append>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>C:\Users\Rodrigo\Documents\UNIESP - DW PARA BI\estudo_dw\saida\melhores_superherois</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <create_parent_folder>N</create_parent_folder>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>ID</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>TITULO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ANO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>DURACAO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>NOTA_IMDB</name>
-        <type>Number</type>
-        <format>00.0</format>
-      </field>
-      <field>
-        <name>VOTOS</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>ORCAMENTO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>BILHETERIA_MUNDIAL</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>GENERO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>PAIS_ORIGEM</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-      <header_font_name>arial</header_font_name>
-      <header_font_size>10</header_font_size>
-      <header_font_bold>N</header_font_bold>
-      <header_font_italic>N</header_font_italic>
-      <header_font_underline>no</header_font_underline>
-      <header_font_orientation>horizontal</header_font_orientation>
-      <header_font_color>black</header_font_color>
-      <header_background_color>none</header_background_color>
-      <header_row_height>255</header_row_height>
-      <header_alignment>left</header_alignment>
-      <header_image/>
-      <row_font_name>arial</row_font_name>
-      <row_font_size>10</row_font_size>
-      <row_font_color>black</row_font_color>
-      <row_background_color>none</row_background_color>
-    </custom>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1056</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>PiorFilme</name>
-    <type>ExcelOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding/>
-    <append>N</append>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>C:\Users\Rodrigo\Documents\UNIESP - DW PARA BI\estudo_dw\saida\PiorFilme</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <create_parent_folder>N</create_parent_folder>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
-    <fields>
-      <field>
-        <name>ID</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>TITULO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ANO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>DURACAO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>NOTA_IMDB</name>
-        <type>Number</type>
-        <format>00.0</format>
-      </field>
-      <field>
-        <name>VOTOS</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>ORCAMENTO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>BILHETERIA_MUNDIAL</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>GENERO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>PAIS_ORIGEM</name>
-        <type>String</type>
-        <format/>
-      </field>
-    </fields>
-    <custom>
-      <header_font_name>arial</header_font_name>
-      <header_font_size>10</header_font_size>
-      <header_font_bold>N</header_font_bold>
-      <header_font_italic>N</header_font_italic>
-      <header_font_underline>no</header_font_underline>
-      <header_font_orientation>horizontal</header_font_orientation>
-      <header_font_color>black</header_font_color>
-      <header_background_color>none</header_background_color>
-      <header_row_height>255</header_row_height>
-      <header_alignment>left</header_alignment>
-      <header_image/>
-      <row_font_name>arial</row_font_name>
-      <row_font_size>10</row_font_size>
-      <row_font_color>black</row_font_color>
-      <row_background_color>none</row_background_color>
-    </custom>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>784</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Replace in string</name>
-    <type>ReplaceString</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <in_stream_name>titulo</in_stream_name>
-        <out_stream_name/>
-        <use_regex>yes</use_regex>
-        <replace_string>[^a-zA-Z0-9\s]</replace_string>
-        <replace_by_string/>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>64</xloc>
-      <yloc>192</yloc>
+      <xloc>304</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1564,120 +612,81 @@
     </partitioning>
     <fields>
       <field>
-        <name>id</name>
-        <rename>ID</rename>
+        <name>id_imdb</name>
+        <rename>id_filme</rename>
       </field>
       <field>
-        <name>title</name>
-        <rename>TITULO</rename>
+        <name>titulo</name>
       </field>
       <field>
-        <name>year</name>
-        <rename>ANO</rename>
+        <name>ano</name>
       </field>
       <field>
-        <name>duration</name>
-        <rename>DURACAO</rename>
+        <name>duracao</name>
       </field>
       <field>
-        <name>rating_imdb</name>
-        <rename>NOTA_IMDB</rename>
+        <name>nota_imdb</name>
       </field>
       <field>
-        <name>vote</name>
-        <rename>VOTOS</rename>
+        <name>voto</name>
       </field>
       <field>
-        <name>budget</name>
-        <rename>ORCAMENTO</rename>
+        <name>orcamento</name>
       </field>
       <field>
-        <name>gross_world_wide</name>
-        <rename>BILHETERIA_MUNDIAL</rename>
+        <name>bilheteria_mundial</name>
       </field>
       <field>
-        <name>genre</name>
-        <rename>GENERO</rename>
+        <name>bilheteria_fds_estreia</name>
       </field>
       <field>
-        <name>country_origin</name>
-        <rename>PAIS_ORIGEM</rename>
+        <name>diretor</name>
       </field>
       <field>
-        <name>link</name>
+        <name>roterista</name>
       </field>
       <field>
-        <name>rating_mpa</name>
+        <name>estrela</name>
       </field>
       <field>
-        <name>gross_us_canada</name>
+        <name>genero</name>
       </field>
       <field>
-        <name>gross_opening_weekend</name>
+        <name>pais_origem</name>
       </field>
       <field>
-        <name>director</name>
+        <name>produtora</name>
       </field>
       <field>
-        <name>writer</name>
-      </field>
-      <field>
-        <name>star</name>
-      </field>
-      <field>
-        <name>filming_location</name>
-      </field>
-      <field>
-        <name>production_company</name>
-      </field>
-      <field>
-        <name>language</name>
-      </field>
-      <field>
-        <name>win</name>
-      </field>
-      <field>
-        <name>nomination</name>
+        <name>indicacoes</name>
       </field>
       <field>
         <name>oscar</name>
       </field>
       <select_unspecified>N</select_unspecified>
       <remove>
-        <name>link</name>
+        <name>orcamento</name>
       </remove>
       <remove>
-        <name>rating_mpa</name>
+        <name>bilheteria_mundial</name>
       </remove>
       <remove>
-        <name>gross_us_canada</name>
+        <name>bilheteria_fds_estreia</name>
       </remove>
       <remove>
-        <name>gross_opening_weekend</name>
+        <name>diretor</name>
       </remove>
       <remove>
-        <name>director</name>
+        <name>roterista</name>
       </remove>
       <remove>
-        <name>writer</name>
+        <name>estrela</name>
       </remove>
       <remove>
-        <name>star</name>
+        <name>pais_origem</name>
       </remove>
       <remove>
-        <name>filming_location</name>
-      </remove>
-      <remove>
-        <name>production_company</name>
-      </remove>
-      <remove>
-        <name>language</name>
-      </remove>
-      <remove>
-        <name>win</name>
-      </remove>
-      <remove>
-        <name>nomination</name>
+        <name>indicacoes</name>
       </remove>
       <remove>
         <name>oscar</name>
@@ -1692,8 +701,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>192</yloc>
+      <xloc>496</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1710,95 +719,100 @@
     </partitioning>
     <fields>
       <field>
-        <name>ID</name>
+        <name>id_filme_valor</name>
       </field>
       <field>
-        <name>TITULO</name>
+        <name>titulo</name>
       </field>
       <field>
-        <name>ANO</name>
+        <name>ano</name>
       </field>
       <field>
-        <name>DURACAO</name>
+        <name>duracao</name>
       </field>
       <field>
-        <name>NOTA_IMDB</name>
+        <name>nota_imdb</name>
       </field>
       <field>
-        <name>VOTOS</name>
+        <name>voto</name>
       </field>
       <field>
-        <name>ORCAMENTO</name>
+        <name>orcamento</name>
       </field>
       <field>
-        <name>BILHETERIA_MUNDIAL</name>
+        <name>bilheteria_mundial</name>
       </field>
       <field>
-        <name>GENERO</name>
+        <name>bilheteria_fds_estreia</name>
       </field>
       <field>
-        <name>PAIS_ORIGEM</name>
+        <name>diretor</name>
+      </field>
+      <field>
+        <name>roterista</name>
+      </field>
+      <field>
+        <name>estrela</name>
+      </field>
+      <field>
+        <name>genero</name>
+      </field>
+      <field>
+        <name>pais_origem</name>
+      </field>
+      <field>
+        <name>produtora</name>
+      </field>
+      <field>
+        <name>indicacoes</name>
+      </field>
+      <field>
+        <name>oscar</name>
+      </field>
+      <field>
+        <name>id_imdb</name>
+        <rename>id_filme</rename>
       </field>
       <select_unspecified>N</select_unspecified>
-      <meta>
-        <name>ID</name>
-        <rename>ID</rename>
-        <type>Integer</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>TITULO</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
+      <remove>
+        <name>titulo</name>
+      </remove>
+      <remove>
+        <name>ano</name>
+      </remove>
+      <remove>
+        <name>duracao</name>
+      </remove>
+      <remove>
+        <name>nota_imdb</name>
+      </remove>
+      <remove>
+        <name>voto</name>
+      </remove>
+      <remove>
+        <name>diretor</name>
+      </remove>
+      <remove>
+        <name>roterista</name>
+      </remove>
+      <remove>
+        <name>estrela</name>
+      </remove>
+      <remove>
+        <name>genero</name>
+      </remove>
+      <remove>
+        <name>pais_origem</name>
+      </remove>
+      <remove>
+        <name>produtora</name>
+      </remove>
+      <remove>
+        <name>indicacoes</name>
+      </remove>
+      <remove>
+        <name>oscar</name>
+      </remove>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1810,133 +824,7 @@
     </remotesteps>
     <GUI>
       <xloc>640</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>TITULO</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 3</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>NOTA_IMDB</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows 3 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>NOTA_IMDB</name>
-        <ascending>N</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>736</xloc>
-      <yloc>32</yloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1953,9 +841,9 @@
     </partitioning>
     <fields>
       <field>
-        <in_stream_name>TITULO</in_stream_name>
+        <in_stream_name>titulo</in_stream_name>
         <out_stream_name/>
-        <trim_type>both</trim_type>
+        <trim_type>none</trim_type>
         <lower_upper>upper</lower_upper>
         <padding_type>none</padding_type>
         <pad_char/>
@@ -1966,33 +854,7 @@
         <remove_special_characters>none</remove_special_characters>
       </field>
       <field>
-        <in_stream_name>GENERO</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>upper</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>N</init_cap>
-        <mask_xml>None</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>PAIS_ORIGEM</in_stream_name>
-        <out_stream_name/>
-        <trim_type>both</trim_type>
-        <lower_upper>upper</lower_upper>
-        <padding_type>none</padding_type>
-        <pad_char/>
-        <pad_len/>
-        <init_cap>N</init_cap>
-        <mask_xml>None</mask_xml>
-        <digits>none</digits>
-        <remove_special_characters>none</remove_special_characters>
-      </field>
-      <field>
-        <in_stream_name>ID</in_stream_name>
+        <in_stream_name>duracao</in_stream_name>
         <out_stream_name/>
         <trim_type>none</trim_type>
         <lower_upper>none</lower_upper>
@@ -2001,7 +863,85 @@
         <pad_len/>
         <init_cap>N</init_cap>
         <mask_xml>None</mask_xml>
-        <digits>only</digits>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>diretor</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>roterista</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>estrela</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>genero</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>pais_origem</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
+        <remove_special_characters>none</remove_special_characters>
+      </field>
+      <field>
+        <in_stream_name>produtora</in_stream_name>
+        <out_stream_name/>
+        <trim_type>none</trim_type>
+        <lower_upper>none</lower_upper>
+        <padding_type>none</padding_type>
+        <pad_char/>
+        <pad_len/>
+        <init_cap>N</init_cap>
+        <mask_xml>None</mask_xml>
+        <digits>none</digits>
         <remove_special_characters>none</remove_special_characters>
       </field>
     </fields>
@@ -2014,8 +954,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>192</yloc>
+      <xloc>192</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2023,7 +963,7 @@
     <name>Table input</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -2441,13 +1381,13 @@
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>80</yloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>todos abaixo de 8</name>
-    <type>ExcelOutput</type>
+    <name>t_filme</name>
+    <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2456,104 +1396,25 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <header>Y</header>
-    <footer>N</footer>
-    <encoding/>
-    <append>N</append>
-    <add_to_result_filenames>Y</add_to_result_filenames>
-    <file>
-      <name>C:\Users\Rodrigo\Documents\UNIESP - DW PARA BI\estudo_dw\saida\imdb_abaixo_de_8</name>
-      <extention>xls</extention>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <create_parent_folder>N</create_parent_folder>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <date_time_format/>
-      <sheetname>Sheet1</sheetname>
-      <autosizecolums>N</autosizecolums>
-      <nullisblank>N</nullisblank>
-      <protect_sheet>N</protect_sheet>
-      <password>Encrypted </password>
-      <splitevery>0</splitevery>
-      <usetempfiles>N</usetempfiles>
-      <tempdirectory/>
-    </file>
-    <template>
-      <enabled>N</enabled>
-      <append>N</append>
-      <filename>template.xls</filename>
-    </template>
+    <connection>prod_filmes</connection>
+    <schema>dimensao</schema>
+    <table>t_filme</table>
+    <commit>10000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
-      <field>
-        <name>ID</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>TITULO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>ANO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>DURACAO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>NOTA_IMDB</name>
-        <type>Number</type>
-        <format>00.0</format>
-      </field>
-      <field>
-        <name>VOTOS</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>ORCAMENTO</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>BILHETERIA_MUNDIAL</name>
-        <type>Integer</type>
-        <format/>
-      </field>
-      <field>
-        <name>GENERO</name>
-        <type>String</type>
-        <format/>
-      </field>
-      <field>
-        <name>PAIS_ORIGEM</name>
-        <type>String</type>
-        <format/>
-      </field>
     </fields>
-    <custom>
-      <header_font_name>arial</header_font_name>
-      <header_font_size>10</header_font_size>
-      <header_font_bold>N</header_font_bold>
-      <header_font_italic>N</header_font_italic>
-      <header_font_underline>no</header_font_underline>
-      <header_font_orientation>horizontal</header_font_orientation>
-      <header_font_color>black</header_font_color>
-      <header_background_color>none</header_background_color>
-      <header_row_height>255</header_row_height>
-      <header_alignment>left</header_alignment>
-      <header_image/>
-      <row_font_name>arial</row_font_name>
-      <row_font_size>10</row_font_size>
-      <row_font_color>black</row_font_color>
-      <row_background_color>none</row_background_color>
-    </custom>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2563,8 +1424,255 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>400</yloc>
+      <xloc>816</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>t_filme_valor</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>prod_filmes</connection>
+    <schema>dimensao</schema>
+    <table>t_filme_valor</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add sequence 2</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>id_filme_infor</valuename>
+    <use_database>N</use_database>
+    <connection>prod_filmes</connection>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_filme_infor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>titulo</name>
+        <rename/>
+      </field>
+      <field>
+        <name>ano</name>
+        <rename/>
+      </field>
+      <field>
+        <name>duracao</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nota_imdb</name>
+        <rename/>
+      </field>
+      <field>
+        <name>voto</name>
+        <rename/>
+      </field>
+      <field>
+        <name>orcamento</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bilheteria_mundial</name>
+        <rename/>
+      </field>
+      <field>
+        <name>bilheteria_fds_estreia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>diretor</name>
+        <rename/>
+      </field>
+      <field>
+        <name>roterista</name>
+        <rename/>
+      </field>
+      <field>
+        <name>estrela</name>
+        <rename/>
+      </field>
+      <field>
+        <name>genero</name>
+        <rename/>
+      </field>
+      <field>
+        <name>pais_origem</name>
+        <rename/>
+      </field>
+      <field>
+        <name>produtora</name>
+        <rename/>
+      </field>
+      <field>
+        <name>indicacoes</name>
+        <rename/>
+      </field>
+      <field>
+        <name>oscar</name>
+        <rename/>
+      </field>
+      <field>
+        <name>id_imdb</name>
+        <rename>id_filme</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>titulo</name>
+      </remove>
+      <remove>
+        <name>ano</name>
+      </remove>
+      <remove>
+        <name>duracao</name>
+      </remove>
+      <remove>
+        <name>nota_imdb</name>
+      </remove>
+      <remove>
+        <name>voto</name>
+      </remove>
+      <remove>
+        <name>orcamento</name>
+      </remove>
+      <remove>
+        <name>bilheteria_mundial</name>
+      </remove>
+      <remove>
+        <name>bilheteria_fds_estreia</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>t_filme_infor</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>prod_filmes</connection>
+    <schema>dimensao</schema>
+    <table>t_filme_infor</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
